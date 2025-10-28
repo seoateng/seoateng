@@ -1,42 +1,4 @@
 <?php
-/*
-author : SEOATENG
-title  : backdoor scanner v 1.0.2 (with bcrypt password protect)
-*/
-
-session_start();
-
-// =====================
-// PASSWORD PROTECT
-// =====================
-// Hash bcrypt untuk "rahasia"
-// kalau mau ganti password: 
-// 1. buka terminal/online tool php password_hash("passwordbaru", PASSWORD_BCRYPT)
-// 2. replace string di bawah
-$hashed_password = '$2a$12$o2ifltWCoXrMl3B92ZvPUurFUncEhmSgonsnLKhCgmz97DnMSuf1.'; 
-
-if (!isset($_SESSION["scanner_login"])) {
-    if (isset($_POST["pass"]) && password_verify($_POST["pass"], $hashed_password)) {
-        $_SESSION["scanner_login"] = true;
-        header("Location: ".$_SERVER['PHP_SELF']);
-        exit;
-    } else {
-        echo '<form method="POST" style="text-align:center;margin-top:20%;">
-        <h2 style="color:lime;">Login Scanner</h2>
-        <input type="password" name="pass" placeholder="Password" style="padding:10px;border-radius:5px;">
-        <button type="submit" style="padding:10px;">Login</button>
-        </form>';
-        exit;
-    }
-}
-
-// Logout
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header("Location: ".$_SERVER['PHP_SELF']);
-    exit;
-}
-
 // ===============
 // Scanner Asli
 // ===============
